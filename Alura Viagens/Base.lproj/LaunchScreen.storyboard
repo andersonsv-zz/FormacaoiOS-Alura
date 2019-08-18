@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +15,54 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-screen" translatesAutoresizingMaskIntoConstraints="NO" id="nqF-J8-Q6F">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="alura viagens" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arQ-bG-4b5">
+                                <rect key="frame" x="228" y="250" width="312.5" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="VuV-MT-fdN">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="35"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="2" height="1"/>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="35"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="50"/>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="nqF-J8-Q6F" secondAttribute="bottom" id="2vW-jI-L0a"/>
+                            <constraint firstItem="arQ-bG-4b5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="230" id="8fw-xB-Yp4"/>
+                            <constraint firstItem="nqF-J8-Q6F" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ANq-Pe-C0d"/>
+                            <constraint firstItem="arQ-bG-4b5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Vk7-8P-Ekl"/>
+                            <constraint firstItem="nqF-J8-Q6F" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="aqM-5F-ouC"/>
+                            <constraint firstItem="nqF-J8-Q6F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="asI-IM-bVo"/>
+                            <constraint firstItem="nqF-J8-Q6F" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="nTk-Fh-nOU"/>
+                            <constraint firstAttribute="trailing" secondItem="nqF-J8-Q6F" secondAttribute="trailing" id="u9z-HE-lgb"/>
+                            <constraint firstAttribute="bottom" secondItem="nqF-J8-Q6F" secondAttribute="bottom" id="wgP-dR-LfF"/>
+                            <constraint firstItem="nqF-J8-Q6F" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="xdO-ke-R8r"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash-screen" width="562.5" height="1218"/>
+    </resources>
 </document>
