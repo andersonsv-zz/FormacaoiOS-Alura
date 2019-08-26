@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
 
 class TableViewCell: UITableViewCell {
     
@@ -19,9 +21,18 @@ class TableViewCell: UITableViewCell {
         labelTitulo.text = viagem.titulo
         labelQuantidadeDias.text = viagem.quantidadeDeDias == 1 ? "1 dia" : "\(viagem.quantidadeDeDias) dias"
         labelPreco.text = "R$ \(viagem.preco)"
-        imagemViagem.image = UIImage(named: viagem.caminhoDaImagem)
+
+        retrieveImage(for: viagem.imageUrl) { image in
+            self.imagemViagem.image = image
+        }
         
         imagemViagem.layer.cornerRadius = 10
         imagemViagem.layer.masksToBounds = true
+    }
+    func retrieveImage(for url: String, completion: @escaping (UIImage) -> Void) -> Request {
+        return Alamofire.request(url, method: .get).responseImage { response in
+            guard let image = response.result.value else { return }
+            completion(image)
+        }
     }
 }

@@ -17,17 +17,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var viewPacotes: UIView!
     
     // MARK: - Atributos
-    
-    let listaViagens:[Viagem] = ViagemDao().retornaTodasAsViagens()
+    var listaViagens:[Viagem] = []
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configuraViews()
+        carregarViagens()
     }
     
     // MARK: - Métodos
+    func carregarViagens(){
+        ViagemService().retornaTodasAsViagens(response: (success: { [weak self] viagens in
+           self?.listaViagens.append(contentsOf: viagens)
+            self?.tabelaViagens.reloadData()
+            }, failure: { [weak self] error in
+                print(error)
+            }, completion: {
+        }))
+    }
     
     func configuraViews() {
         viewPacotes.layer.cornerRadius = 10

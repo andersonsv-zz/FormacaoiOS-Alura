@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import Alamofire
+
+class PacoteViagemService: Service {
+    let url = "https://backend-formacao.herokuapp.com/"
+    func retornaTodasAsViagens(response: Response<[PacoteViagem]>) {
+        let url = "\(endPoint)pacotes"
+        request(url, response: response)
+    }
+}

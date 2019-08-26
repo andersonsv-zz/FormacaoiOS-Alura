@@ -18,19 +18,32 @@ class PacotesViagensViewController: UIViewController, UICollectionViewDataSource
     
     // MARK: - Atributos
     
-    let listaComTodasViagens: [PacoteViagem] = PacoteViagemDao().retornaTodasAsViagens()
+   // let listaComTodasViagens: [PacoteViagem] = PacoteViagemDao().retornaTodasAsViagens()
+    var listaComTodasViagens: [PacoteViagem] = []
     var listaViagens: [PacoteViagem] = []
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        carregarPacotesDeViagens()
         pesquisarViagens.delegate = self
         listaViagens = listaComTodasViagens
         labelContadorPacotes.text = atualizaContadorLabel()
     }
     
     // MARK: - Métodos
+    
+    func carregarPacotesDeViagens(){
+        PacoteViagemService().retornaTodasAsViagens(response: (success: { [weak self] pacotesViagens in
+            self?.listaComTodasViagens = pacotesViagens
+            self?.colecaoPacotesViagens.reloadData()
+            }, failure: { [weak self] error in
+                print(error)
+            }, completion: {
+        }))
+    }
     
     func atualizaContadorLabel() -> String {
         return listaViagens.count == 1 ? "1 pacote encontrado" : "\(listaViagens.count) pacotes encontrados"
@@ -41,7 +54,7 @@ class PacotesViagensViewController: UIViewController, UICollectionViewDataSource
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         listaViagens = listaComTodasViagens
         if searchText != "" {
-            listaViagens = listaViagens.filter({ $0.viagem.titulo.contains(searchText) })
+            listaViagens = listaViagens.filter({ $0.titulo.contains(searchText) })
         }
         labelContadorPacotes.text = atualizaContadorLabel()
         colecaoPacotesViagens.reloadData()

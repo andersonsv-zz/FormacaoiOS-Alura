@@ -8,18 +8,14 @@
 
 import UIKit
 
-class PacoteViagem: NSObject {
-    
+struct PacoteViagem: Codable {
+    let id: Int
+    let titulo: String
+    let quantidadeDeDias: Int
+    let preco: String
+    let imageUrl: String
+    let localizacao: String
     let nomeDoHotel: String
-    let descricao: String
-    let dataViagem: String
-    let viagem: Viagem
-    
-    init(nomeDoHotel: String, descricao: String, dataViagem: String, viagem: Viagem) {
-        self.nomeDoHotel = nomeDoHotel
-        self.descricao = descricao
-        self.dataViagem = dataViagem
-        self.viagem = viagem
-    }
-
+    let servico: String
+    let data: String
 }
